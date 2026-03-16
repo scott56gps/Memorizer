@@ -30,19 +30,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D25E66EC2F689B34006A33AA /* ScriptureMemorizer */ = {
+		D25E66EC2F689B34006A33AA /* Memorizer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScriptureMemorizer;
+			path = Memorizer;
 			sourceTree = "<group>";
 		};
-		D25E66FA2F689B36006A33AA /* ScriptureMemorizerTests */ = {
+		D25E66FA2F689B36006A33AA /* MemorizerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScriptureMemorizerTests;
+			path = MemorizerTests;
 			sourceTree = "<group>";
 		};
-		D25E67042F689B36006A33AA /* ScriptureMemorizerUITests */ = {
+		D25E67042F689B36006A33AA /* MemorizerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScriptureMemorizerUITests;
+			path = MemorizerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		D25E66E12F689B34006A33AA = {
 			isa = PBXGroup;
 			children = (
-				D25E66EC2F689B34006A33AA /* ScriptureMemorizer */,
-				D25E66FA2F689B36006A33AA /* ScriptureMemorizerTests */,
-				D25E67042F689B36006A33AA /* ScriptureMemorizerUITests */,
+				D25E66EC2F689B34006A33AA /* Memorizer */,
+				D25E66FA2F689B36006A33AA /* MemorizerTests */,
+				D25E67042F689B36006A33AA /* MemorizerUITests */,
 				D25E66EB2F689B34006A33AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,7 +108,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D25E66EC2F689B34006A33AA /* ScriptureMemorizer */,
+				D25E66EC2F689B34006A33AA /* Memorizer */,
 			);
 			name = Memorizer;
 			packageProductDependencies = (
@@ -131,7 +131,7 @@
 				D25E66F92F689B36006A33AA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D25E66FA2F689B36006A33AA /* ScriptureMemorizerTests */,
+				D25E66FA2F689B36006A33AA /* MemorizerTests */,
 			);
 			name = MemorizerTests;
 			packageProductDependencies = (
@@ -154,7 +154,7 @@
 				D25E67032F689B36006A33AA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D25E67042F689B36006A33AA /* ScriptureMemorizerUITests */,
+				D25E67042F689B36006A33AA /* MemorizerUITests */,
 			);
 			name = MemorizerUITests;
 			packageProductDependencies = (

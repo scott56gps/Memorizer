@@ -11,7 +11,7 @@ import SwiftUI
 struct ScriptureMemorizerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CaptureView()
         }
     }
 }
