@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ChallengeView: View {
-    let memorizationText: String
     @State var inputText: String = ""
+    var viewModel: ChallengeViewModel
     
     var body: some View {
         VStack {
@@ -23,6 +23,7 @@ struct ChallengeView: View {
             Button("Check Result!") {
                 // TODO: Check Text
                 // TODO: Navigate to ResultView
+                viewModel.verifyText(text: inputText)
             }
             .disabled(inputText.isEmpty)
         }
@@ -31,5 +32,5 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    ChallengeView(memorizationText: "My bonnie flies over the ocean")
+    ChallengeView(viewModel: ChallengeViewModel(memorizationText: "My Bonnie Flies over the ocean"))
 }
