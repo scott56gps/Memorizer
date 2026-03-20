@@ -4,12 +4,14 @@
 //
 //  Created by Scott Nicholes on 3/16/26.
 //
+import Tokenizer
 
 struct ChallengeViewModel {
-    let memorizationText: String
-    
-    func verifyText(text: String) -> [Substring] {
-        let lowercasedText = text.lowercased()
-        return memorizationText.lowercased().split(separator: " ").filter { !text.contains(String($0)) }
+    let memorizedText: String
+
+    func verifyText(text: String) -> Bool {
+        let tokenizedText = Tokenizer.tokenize(text.lowercased())
+        let tokenizedMemorizedText = Tokenizer.tokenize(memorizedText.lowercased())
+        return tokenizedText == tokenizedMemorizedText
     }
 }

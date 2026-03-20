@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ChallengeView: View {
+    @ObservedObject var router: Router
     @State var inputText: String = ""
     var viewModel: ChallengeViewModel
-    
+
     var body: some View {
         VStack {
             Text("Memorizer")
@@ -21,9 +22,8 @@ struct ChallengeView: View {
                 .border(.blue)
             Spacer()
             Button("Check Result!") {
-                // TODO: Check Text
                 // TODO: Navigate to ResultView
-                viewModel.verifyText(text: inputText)
+                let isValid = viewModel.verifyText(text: inputText)
             }
             .disabled(inputText.isEmpty)
         }
@@ -32,5 +32,5 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    ChallengeView(viewModel: ChallengeViewModel(memorizationText: "My Bonnie Flies over the ocean"))
+    AppViewBuilder.buildPreview(screen: .challenge("My Bonnie Flies over the ocean"))
 }

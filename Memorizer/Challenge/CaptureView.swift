@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CaptureView: View {
+    @ObservedObject var router: Router
     @State var text: String = ""
-    
+
     var body: some View {
         VStack {
             Text("Memorizer")
@@ -29,5 +30,5 @@ struct CaptureView: View {
 }
 
 #Preview {
-    CaptureView()
+    AppViewBuilder.buildPreview(screen: .capture)
 }

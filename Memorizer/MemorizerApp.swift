@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ScriptureMemorizerApp: App {
+    @StateObject private var router = Router()
+    
     var body: some Scene {
         WindowGroup {
-            CaptureView()
+            AppViewBuilder.build(screen: router.currentView, router: router)
         }
     }
 }

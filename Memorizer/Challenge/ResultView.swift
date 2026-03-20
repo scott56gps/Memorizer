@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct ResultView: View {
-    @State var missedWords: [String]?
-    
+    @ObservedObject var router: Router
+    @State var missedMemorizedText: (String, [Substring])?
+
     var body: some View {
         VStack {
             Text("Memorizer")
                 .font(.largeTitle)
             Spacer()
-            if let missedWords = missedWords {
+            if let missedMemorizedText = missedMemorizedText {
                 Text("Almost!")
                     .font(.title)
                 Text("Missed Words:")
-                ForEach(missedWords, id: \.self) { word in
+                ForEach(missedMemorizedText.1, id: \.self) { word in
                     Text(word)
                 }
             } else {
@@ -28,8 +29,9 @@ struct ResultView: View {
                 Text("You correctly recited your text")
             }
             Spacer()
-            Button(missedWords != nil ? "Try Again" : "Play Again") {
+            Button(missedMemorizedText != nil ? "Try Again" : "Play Again") {
                 // TODO: Navigate to CaptureView
+                router.showCapture()
             }
         }
         .padding()
@@ -37,5 +39,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView(missedWords: ["Hola", "Yo", "Mi", "Amor"])
+    AppViewBuilder.buildPreview(screen: .result(("My bonnie flies over the ocean", ["My", "flies"])))
 }
