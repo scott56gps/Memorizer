@@ -14,9 +14,25 @@
             filePath = "MemorizerTests/ChallengeViewModelTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "verifyText_InputHasCapitalLetter_Matches()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "ChallengeViewModelTests"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C7906F8-B4BA-4F1E-A796-FBA79D4FF8F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Memorizer/Challenge/ChallengeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "verifyText(text:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

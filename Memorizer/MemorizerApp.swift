@@ -13,7 +13,9 @@ struct ScriptureMemorizerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppViewBuilder.build(screen: router.currentView, router: router)
+            AppViewBuilder.build(
+                screen: router.currentView,
+                router: router.navigators)
         }
     }
 }

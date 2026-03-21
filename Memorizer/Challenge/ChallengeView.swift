@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChallengeView: View {
-    @ObservedObject var router: Router
+    var navigators: RoutingActions
     @State var inputText: String = ""
     var viewModel: ChallengeViewModel
 

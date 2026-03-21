@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
-    @ObservedObject var router: Router
+    var navigators: RoutingActions
     @State var missedMemorizedText: (String, [Substring])?
 
     var body: some View {
@@ -30,8 +30,7 @@ struct ResultView: View {
             }
             Spacer()
             Button(missedMemorizedText != nil ? "Try Again" : "Play Again") {
-                // TODO: Navigate to CaptureView
-                router.showCapture()
+                navigators.showCapture()
             }
         }
         .padding()

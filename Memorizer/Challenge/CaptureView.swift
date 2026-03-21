@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CaptureView: View {
-    @ObservedObject var router: Router
+    var navigators: RoutingActions
     @State var text: String = ""
 
     var body: some View {
@@ -22,6 +22,7 @@ struct CaptureView: View {
             Spacer()
             Button("Start Memorizing!") {
                 // TODO: Navigate to ChallengeView
+                navigators.showChallenge(text)
             }
             .disabled(text.isEmpty)
         }
