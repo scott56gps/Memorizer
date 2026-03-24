@@ -9,9 +9,9 @@ import Tokenizer
 struct ChallengeViewModel {
     let memorizedText: String
 
-    func verifyText(text: String) -> Bool {
+    func missedWordsFor(text: String) -> [Substring] {
         let tokenizedText = Tokenizer.tokenize(text.lowercased())
         let tokenizedMemorizedText = Tokenizer.tokenize(memorizedText.lowercased())
-        return tokenizedText == tokenizedMemorizedText
+        return tokenizedMemorizedText.filter { word in !tokenizedText.contains(word) }
     }
 }

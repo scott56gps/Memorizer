@@ -9,14 +9,17 @@ import SwiftUI
 
 struct ResultView: View {
     var navigators: RoutingActions
-    @State var missedMemorizedText: (String, [Substring])?
+    @State var missedMemorizedText: (String, [Substring])
+    var hasMissedText: Bool {
+        missedMemorizedText.1.isEmpty == false
+    }
 
     var body: some View {
         VStack {
             Text("Memorizer")
                 .font(.largeTitle)
             Spacer()
-            if let missedMemorizedText = missedMemorizedText {
+            if hasMissedText {
                 Text("Almost!")
                     .font(.title)
                 Text("Missed Words:")
@@ -29,7 +32,7 @@ struct ResultView: View {
                 Text("You correctly recited your text")
             }
             Spacer()
-            Button(missedMemorizedText != nil ? "Try Again" : "Play Again") {
+            Button(hasMissedText ? "Try Again" : "Play Again") {
                 navigators.showCapture()
             }
         }

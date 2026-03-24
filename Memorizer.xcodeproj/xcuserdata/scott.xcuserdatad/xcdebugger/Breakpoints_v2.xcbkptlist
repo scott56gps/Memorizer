@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "verifyText(text:)"
+            landmarkName = "missedWordsFor(text:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

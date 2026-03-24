@@ -22,8 +22,8 @@ struct ChallengeView: View {
                 .border(.blue)
             Spacer()
             Button("Check Result!") {
-                // TODO: Navigate to ResultView
-                let isValid = viewModel.verifyText(text: inputText)
+                let missedWords = viewModel.missedWordsFor(text: inputText)
+                navigators.showResult((viewModel.memorizedText, missedWords))
             }
             .disabled(inputText.isEmpty)
         }

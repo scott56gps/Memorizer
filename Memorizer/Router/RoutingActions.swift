@@ -8,5 +8,5 @@
 struct RoutingActions {
     var showCapture: () -> Void = { }
     var showChallenge: (String) -> Void = { _ in }
-    var showResult: ((String, [Substring])?) -> Void = { _ in }
+    var showResult: ((String, [Substring])) -> Void = { _ in }
 }

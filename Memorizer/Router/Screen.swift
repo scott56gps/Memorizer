@@ -8,7 +8,7 @@
 enum Screen {
     case capture
     case challenge(String)
-    case result((String, [Substring])?)
+    case result((String, [Substring]))
 }
 
 extension Screen {
@@ -24,7 +24,7 @@ extension Screen {
             return RoutingActions(
                 showResult: { result in
                     print("Preview: Challenge → Result")
-                    if let result {
+                    if !result.1.isEmpty {
                         print("Preview: with starting text: \(result.0)")
                         print("Preview: And missing words:")
                         result.1.forEach { word in

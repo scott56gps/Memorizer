@@ -21,7 +21,6 @@ struct CaptureView: View {
                 .border(.blue)
             Spacer()
             Button("Start Memorizing!") {
-                // TODO: Navigate to ChallengeView
                 navigators.showChallenge(text)
             }
             .disabled(text.isEmpty)
