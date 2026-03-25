@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D274A4D12F6DC78F00F003EE /* Tokenizer in Frameworks */ = {isa = PBXBuildFile; productRef = D274A4D02F6DC78F00F003EE /* Tokenizer */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D25E66F82F689B36006A33AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -30,19 +34,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D25E66EC2F689B34006A33AA /* ScriptureMemorizer */ = {
+		D25E66EC2F689B34006A33AA /* Memorizer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScriptureMemorizer;
+			path = Memorizer;
 			sourceTree = "<group>";
 		};
-		D25E66FA2F689B36006A33AA /* ScriptureMemorizerTests */ = {
+		D25E66FA2F689B36006A33AA /* MemorizerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScriptureMemorizerTests;
+			path = MemorizerTests;
 			sourceTree = "<group>";
 		};
-		D25E67042F689B36006A33AA /* ScriptureMemorizerUITests */ = {
+		D25E67042F689B36006A33AA /* MemorizerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScriptureMemorizerUITests;
+			path = MemorizerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D274A4D12F6DC78F00F003EE /* Tokenizer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +80,9 @@
 		D25E66E12F689B34006A33AA = {
 			isa = PBXGroup;
 			children = (
-				D25E66EC2F689B34006A33AA /* ScriptureMemorizer */,
-				D25E66FA2F689B36006A33AA /* ScriptureMemorizerTests */,
-				D25E67042F689B36006A33AA /* ScriptureMemorizerUITests */,
+				D25E66EC2F689B34006A33AA /* Memorizer */,
+				D25E66FA2F689B36006A33AA /* MemorizerTests */,
+				D25E67042F689B36006A33AA /* MemorizerUITests */,
 				D25E66EB2F689B34006A33AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,10 +113,11 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D25E66EC2F689B34006A33AA /* ScriptureMemorizer */,
+				D25E66EC2F689B34006A33AA /* Memorizer */,
 			);
 			name = Memorizer;
 			packageProductDependencies = (
+				D274A4D02F6DC78F00F003EE /* Tokenizer */,
 			);
 			productName = ScriptureMemorizer;
 			productReference = D25E66EA2F689B34006A33AA /* Memorizer.app */;
@@ -131,7 +137,7 @@
 				D25E66F92F689B36006A33AA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D25E66FA2F689B36006A33AA /* ScriptureMemorizerTests */,
+				D25E66FA2F689B36006A33AA /* MemorizerTests */,
 			);
 			name = MemorizerTests;
 			packageProductDependencies = (
@@ -154,7 +160,7 @@
 				D25E67032F689B36006A33AA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D25E67042F689B36006A33AA /* ScriptureMemorizerUITests */,
+				D25E67042F689B36006A33AA /* MemorizerUITests */,
 			);
 			name = MemorizerUITests;
 			packageProductDependencies = (
@@ -195,6 +201,9 @@
 			);
 			mainGroup = D25E66E12F689B34006A33AA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D274A4CF2F6DC78F00F003EE /* XCLocalSwiftPackageReference "../design/Tokenizer" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D25E66EB2F689B34006A33AA /* Products */;
 			projectDirPath = "";
@@ -400,6 +409,8 @@
 				DEVELOPMENT_TEAM = 5Y5WLA6579;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe spoken text.  Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Spoken audio is transcribed to detect memorization text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +443,8 @@
 				DEVELOPMENT_TEAM = 5Y5WLA6579;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe spoken text.  Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Spoken audio is transcribed to detect memorization text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +591,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D274A4CF2F6DC78F00F003EE /* XCLocalSwiftPackageReference "../design/Tokenizer" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../design/Tokenizer;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D274A4D02F6DC78F00F003EE /* Tokenizer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Tokenizer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D25E66E22F689B34006A33AA /* Project object */;
 }
