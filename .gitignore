@@ -3,3 +3,6 @@
 .swift-development
 .compile
 buildServer.json
+
+Memorizer.xcodeproj/project.xcworkspace/xcuserdata/*
+Memorizer.xcodeporj/xcuserdata/*
