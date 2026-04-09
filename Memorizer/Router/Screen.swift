@@ -7,8 +7,8 @@
 
 enum Screen {
     case capture
-    case challenge(String)
-    case result((String, [Substring]))
+    case challenge([Token])
+    case result(RecitationResult)
 }
 
 extension Screen {
@@ -17,20 +17,24 @@ extension Screen {
         case .capture:
             return RoutingActions(
                 showChallenge: { text in
-                    print("Preview: Capture -> Challenge with text: \(text)")
+                    print("Preview: Capture -> Challenge with text: \(text.reduce("") { $0 + "\($1) " })")
                 }
             )
         case .challenge:
             return RoutingActions(
                 showResult: { result in
                     print("Preview: Challenge → Result")
-                    if !result.1.isEmpty {
-                        print("Preview: with starting text: \(result.0)")
-                        print("Preview: And missing words:")
-                        result.1.forEach { word in
-                            print(word)
+                    print("Showing Results:")
+                    let tokensGroupedByCorrectness: [RecitationResultCorrectness: [RecitationResultToken]] = Dictionary(grouping: result.results) { result in
+                        switch result.correctness {
+                        case .correct: return .correct
+                        case .incorrect: return .incorrect
+                        case .neutral: return .neutral
                         }
                     }
+                    print("Correct Tokens: \(tokensGroupedByCorrectness[.correct] ?? [])")
+                    print("Incorrect Tokens: \(tokensGroupedByCorrectness[.incorrect] ?? [])")
+                    print("Full String: \(result.results.reduce("") { $0 + $1.text })")
                 }
             )
         case .result:

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ResultView: View {
     var navigators: RoutingActions
-    @State var missedMemorizedText: (String, [Substring])
+    let results: RecitationResult
     var hasMissedText: Bool {
-        missedMemorizedText.1.isEmpty == false
+        results.hasIncorrectToken
     }
 
     var body: some View {
@@ -22,15 +22,12 @@ struct ResultView: View {
             if hasMissedText {
                 Text("Almost!")
                     .font(.title)
-                Text("Missed Words:")
-                ForEach(missedMemorizedText.1, id: \.self) { word in
-                    Text(word)
-                }
             } else {
                 Text("Congratulations!")
                     .font(.title)
                 Text("You correctly recited your text")
             }
+            Text(results.resultText)
             Spacer()
             Button(hasMissedText ? "Try Again" : "Play Again") {
                 navigators.showCapture()
@@ -41,5 +38,11 @@ struct ResultView: View {
 }
 
 #Preview {
-    AppViewBuilder.buildPreview(screen: .result(("My bonnie flies over the ocean", ["My", "flies"])))
+    AppViewBuilder.buildPreview(screen: .result(RecitationResult(results: [
+        RecitationResultToken(text: "How", correctness: .correct),
+        RecitationResultToken(text: "great", correctness: .incorrect),
+        RecitationResultToken(text: ", ", correctness: .neutral),
+        RecitationResultToken(text: "Thou", correctness: .correct),
+        RecitationResultToken(text: "art", correctness: .correct)
+    ])))
 }

@@ -6,29 +6,33 @@
 //
 
 struct Scorer {
-    func score(memorizedWords: [String], attemptedWords: [String]) -> [(String, Bool)] {
-        let result = score(memorizedWords: memorizedWords[...], attemptedWords: attemptedWords[...]) {
+    static func score(memorizedTokens: [Token], attemptedWords: [String]) -> [RecitationResultToken] {
+        let result = score(memorizedTokens: memorizedTokens[...], attemptedWords: attemptedWords[...]) {
             $0.lowercased() == $1.lowercased()
         }
         return result
     }
     
-    private func score(memorizedWords: ArraySlice<String>,
+    private static func score(memorizedTokens: ArraySlice<Token>,
                        attemptedWords: ArraySlice<String>,
-                       itemPredicate: (String, String) -> Bool) -> [(String, Bool)] {
-        guard let firstOriginal = memorizedWords.first else { return [] }
+                       itemPredicate: (String, String) -> Bool) -> [RecitationResultToken] {
+        guard let firstOriginal = memorizedTokens.first else { return [] }
+        if !firstOriginal.isWord { return [RecitationResultToken(text: firstOriginal.text, correctness: .neutral)] + score(
+            memorizedTokens: memorizedTokens.dropFirst(),
+            attemptedWords: attemptedWords,
+            itemPredicate: itemPredicate) }
 
-        if let firstAttempted = attemptedWords.first, itemPredicate(firstAttempted, firstOriginal) {
-            return [(firstOriginal, true)] +
+        if let firstAttempted = attemptedWords.first, itemPredicate(firstAttempted, firstOriginal.text) {
+            return [RecitationResultToken(text: firstOriginal.text, correctness: .correct)] +
             score(
-                memorizedWords: memorizedWords.dropFirst(),
+                memorizedTokens: memorizedTokens.dropFirst(),
                 attemptedWords: attemptedWords.dropFirst(),
                 itemPredicate: itemPredicate
             )
         } else {
-            return [(firstOriginal, false)] +
+            return [RecitationResultToken(text: firstOriginal.text, correctness: .incorrect)] +
             score(
-                memorizedWords: memorizedWords.dropFirst(),
+                memorizedTokens: memorizedTokens.dropFirst(),
                 attemptedWords: attemptedWords,
                 itemPredicate: itemPredicate
             )

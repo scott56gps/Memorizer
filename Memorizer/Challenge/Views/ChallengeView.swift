@@ -22,8 +22,8 @@ struct ChallengeView: View {
                 .border(.blue)
             Spacer()
             Button("Check Result!") {
-                let missedWords = viewModel.missedWordsFor(text: inputText)
-                navigators.showResult((viewModel.memorizedText, missedWords))
+                let results = viewModel.getResultsFor(attemptedText: inputText)
+                navigators.showResult(results)
             }
             .disabled(inputText.isEmpty)
         }
@@ -32,5 +32,5 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    AppViewBuilder.buildPreview(screen: .challenge("My Bonnie Flies over the ocean"))
+    AppViewBuilder.buildPreview(screen: .challenge(Tokenizer.tokenize("My Bonnie Flies over the ocean")))
 }

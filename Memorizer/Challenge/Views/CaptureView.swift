@@ -10,6 +10,7 @@ import SwiftUI
 struct CaptureView: View {
     var navigators: RoutingActions
     @State var text: String = ""
+    var viewModel: CaptureViewModel
 
     var body: some View {
         VStack {
@@ -21,7 +22,8 @@ struct CaptureView: View {
                 .border(.blue)
             Spacer()
             Button("Start Memorizing!") {
-                navigators.showChallenge(text)
+                let tokenizedText = viewModel.tokenizeText(text)
+                navigators.showChallenge(tokenizedText)
             }
             .disabled(text.isEmpty)
         }
