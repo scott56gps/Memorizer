@@ -9,10 +9,10 @@ struct ChallengeViewModel {
     var memorizedTokens: [Token]
 
     func getResultsFor(attemptedText: String) -> RecitationResult {
-        let attemptedWords = Tokenizer.tokenize(attemptedText)
+        let attemptedWords = DefaultTokenizer().tokenize(attemptedText)
             .filter { $0.isWord }
             .map { $0.text }
-        let results = Scorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
+        let results = DefaultScorer().score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
         return RecitationResult(results: results)
     }
 }

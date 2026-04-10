@@ -32,5 +32,5 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    AppViewBuilder.buildPreview(screen: .challenge(Tokenizer.tokenize("My Bonnie Flies over the ocean")))
+    AppViewBuilder.buildPreview(screen: .challenge(DefaultTokenizer().tokenize("My Bonnie Flies over the ocean")))
 }

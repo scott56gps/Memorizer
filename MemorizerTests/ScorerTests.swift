@@ -16,7 +16,7 @@ struct ScorerTests {
             Token(text: "Hello", isWord: true),
             Token(text: "Code", isWord: true),
             Token(text: "World", isWord: true)]
-        let result = Scorer.score(memorizedTokens: memorizedTokens, attemptedWords: [])
+        let result = DefaultScorer.score(memorizedTokens: memorizedTokens, attemptedWords: [])
         #expect(memorizedTokens.count == result.count)
     }
 
@@ -24,7 +24,7 @@ struct ScorerTests {
     func score_CapitalizationShouldNotAffectCorrectness() {
         let memorizedTokens: [Token] = [Token(text: "Hello", isWord: true)]
         let attemptedWords: [String] = ["HELLO"]
-        let result = Scorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
+        let result = DefaultScorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
         #expect(result[0].correctness == .correct)
     }
     
@@ -35,7 +35,7 @@ struct ScorerTests {
             Token(text: "Code", isWord: true),
             Token(text: "World", isWord: true)]
         let attemptedWords: [String] = []
-        let result = Scorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
+        let result = DefaultScorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
         result.forEach {
             #expect($0.correctness == .incorrect)
         }
@@ -47,7 +47,7 @@ struct ScorerTests {
             Token(text: "Hello", isWord: true),
             Token(text: "Code", isWord: true)]
         let attemptedWords: [String] = ["Hello", "Hola"]
-        let result = Scorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
+        let result = DefaultScorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
         #expect(result[1].correctness == .incorrect)
     }
 }

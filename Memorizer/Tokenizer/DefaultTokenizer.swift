@@ -6,10 +6,10 @@
 //
 import Foundation
 
-struct Tokenizer {
-    private static let regex = try! Regex<Substring>(#"[\w']+|[[:punct:]]\s*|\s+"#)
+struct DefaultTokenizer: Tokenizing {
+    private let regex = try! Regex<Substring>(#"[\w']+|[[:punct:]]\s*|\s+"#)
     
-    static func tokenize(_ string: String) -> [Token] {
+    func tokenize(_ string: String) -> [Token] {
         string.matches(of: regex).map { match in
             let text = String(match.output)
 

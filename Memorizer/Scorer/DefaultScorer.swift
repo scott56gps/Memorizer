@@ -5,15 +5,15 @@
 //  Created by Scott Nicholes on 4/1/26.
 //
 
-struct Scorer {
-    static func score(memorizedTokens: [Token], attemptedWords: [String]) -> [RecitationResultToken] {
+struct DefaultScorer: Scoring {
+    func score(memorizedTokens: [Token], attemptedWords: [String]) -> [RecitationResultToken] {
         let result = score(memorizedTokens: memorizedTokens[...], attemptedWords: attemptedWords[...]) {
             $0.lowercased() == $1.lowercased()
         }
         return result
     }
     
-    private static func score(memorizedTokens: ArraySlice<Token>,
+    private func score(memorizedTokens: ArraySlice<Token>,
                        attemptedWords: ArraySlice<String>,
                        itemPredicate: (String, String) -> Bool) -> [RecitationResultToken] {
         guard let firstOriginal = memorizedTokens.first else { return [] }

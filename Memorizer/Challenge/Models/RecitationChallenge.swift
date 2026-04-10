@@ -10,7 +10,7 @@ struct RecitationChallenge {
 }
 
 extension RecitationChallenge {
-    func score(string: String) -> RecitationResult {
+    func score(string: String, tokenizer: Tokenizing, scorer: Scoring) -> RecitationResult {
         return RecitationResult(results: [RecitationResultToken(text: "Nope", correctness: .incorrect)])
     }
 }

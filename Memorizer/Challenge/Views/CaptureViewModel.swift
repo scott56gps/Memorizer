@@ -7,6 +7,6 @@
 
 struct CaptureViewModel {
     func tokenizeText(_ text: String) -> [Token] {
-        Tokenizer.tokenize(text)
+        DefaultTokenizer().tokenize(text)
     }
 }
