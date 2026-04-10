@@ -9,9 +9,10 @@ import SwiftUI
 
 struct RecitationResult {
     let results: [RecitationResultToken]
+    let styler: TokenStyling = DefaultTokenStyler()
     var resultText: AttributedString {
         results.reduce(into: AttributedString()) { result, token in
-            result.append(token.styledText)
+            result.append(styler.style(token))
         }
     }
     var hasIncorrectToken: Bool {
@@ -22,13 +23,6 @@ struct RecitationResult {
 struct RecitationResultToken {
     let text: String
     let correctness: RecitationResultCorrectness
-    var styledText: AttributedString {
-        var string = AttributedString(text)
-        if case .incorrect = self.correctness {
-            string.foregroundColor = .red
-        }
-        return string
-    }
 }
 
 enum RecitationResultCorrectness: Equatable {
