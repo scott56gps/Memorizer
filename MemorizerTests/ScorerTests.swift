@@ -45,9 +45,10 @@ struct ScorerTests {
     func score_OneIncorrectAttempt_OneIncorrectResult() {
         let memorizedTokens: [Token] = [
             Token(text: "Hello", isWord: true),
-            Token(text: "Code", isWord: true)]
-        let attemptedWords: [String] = ["Hello", "Hola"]
+            Token(text: "dolly", isWord: true)]
+        let attemptedWords: [String] = ["Hola", "dolly"]
         let result = DefaultScorer().score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
-        #expect(result[1].correctness == .incorrect)
+        #expect(result[0].correctness == .incorrect)
+        #expect(result[1].correctness == .correct)
     }
 }

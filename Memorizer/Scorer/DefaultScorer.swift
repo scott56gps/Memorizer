@@ -33,7 +33,7 @@ struct DefaultScorer: Scoring {
             return [RecitationResultToken(text: firstOriginal.text, correctness: .incorrect)] +
             score(
                 memorizedTokens: memorizedTokens.dropFirst(),
-                attemptedWords: attemptedWords,
+                attemptedWords: attemptedWords.dropFirst(),
                 itemPredicate: itemPredicate
             )
         }
