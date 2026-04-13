@@ -22,8 +22,14 @@ struct CaptureView: View {
                 .border(.blue)
             Spacer()
             Button("Start Memorizing!") {
+                // We're tokenizing the text here, but really, we should be saving the text entered.
+                //  Tokenization should occur only when we're about to start a challenge.
                 let tokenizedText = viewModel.tokenizeText(text)
-                navigators.showChallenge(tokenizedText)
+                
+                // This is simulating coming from a "MenuView" or something like that.
+                // The tokenized text should only be created from the MenuView, since that View will be
+                //  "kicking off the challenge"
+                navigators.showChallenge(RecitationChallenge(memorizedTokens: tokenizedText))
             }
             .disabled(text.isEmpty)
         }

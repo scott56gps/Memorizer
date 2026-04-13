@@ -7,6 +7,6 @@
 
 struct RoutingActions {
     var showCapture: () -> Void = { }
-    var showChallenge: ([Token]) -> Void = { _ in }
+    var showChallenge: (RecitationChallenge) -> Void = { _ in }
     var showResult: (RecitationResult) -> Void = { _ in }
 }

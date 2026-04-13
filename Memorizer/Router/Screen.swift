@@ -7,7 +7,7 @@
 
 enum Screen {
     case capture
-    case challenge([Token])
+    case challenge(RecitationChallenge)
     case result(RecitationResult)
 }
 
@@ -16,8 +16,8 @@ extension Screen {
         switch self {
         case .capture:
             return RoutingActions(
-                showChallenge: { text in
-                    print("Preview: Capture -> Challenge with text: \(text.reduce("") { $0 + "\($1) " })")
+                showChallenge: { challenge in
+                    print("Preview: Capture -> Challenge with tokens: \(challenge.memorizedTokens)")
                 }
             )
         case .challenge:

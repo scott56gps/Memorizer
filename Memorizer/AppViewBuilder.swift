@@ -12,9 +12,20 @@ struct AppViewBuilder {
     @ViewBuilder
     static func build(screen: Screen, router: RoutingActions) -> some View {
         switch screen {
-        case .capture: CaptureView(navigators: router, viewModel: CaptureViewModel())
-        case .challenge(let memorizedTokens): ChallengeView(navigators: router, viewModel: ChallengeViewModel(memorizedTokens: memorizedTokens))
-        case .result(let results): ResultView(navigators: router, results: results)
+        case .capture: CaptureView(
+            navigators: router,
+            viewModel: CaptureViewModel()
+        )
+        case .challenge(let challenge): ChallengeView(
+            navigators: router,
+            challenge: challenge,
+            tokenizer: DefaultTokenizer(),
+            scorer: DefaultScorer()
+        )
+        case .result(let results): ResultView(
+            navigators: router,
+            results: results
+        )
         }
     }
     

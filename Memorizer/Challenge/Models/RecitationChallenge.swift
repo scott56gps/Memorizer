@@ -10,7 +10,12 @@ struct RecitationChallenge {
 }
 
 extension RecitationChallenge {
-    func score(string: String, tokenizer: Tokenizing, scorer: Scoring) -> RecitationResult {
-        return RecitationResult(results: [RecitationResultToken(text: "Nope", correctness: .incorrect)])
+    func score(attemptedString: String, tokenizer: Tokenizing, scorer: Scoring) -> RecitationResult {
+        let attemptedWords = tokenizer.tokenize(attemptedString)
+            .filter { $0.isWord }
+            .map { $0.text }
+            
+        let results = scorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
+        return RecitationResult(results: results)
     }
 }
