@@ -10,7 +10,10 @@ import SwiftUI
 struct ChallengeView: View {
     var navigators: RoutingActions
     @State var inputText: String = ""
-    var viewModel: ChallengeViewModel
+    let challenge: RecitationChallenge
+    
+    let tokenizer: Tokenizing
+    let scorer: Scoring
 
     var body: some View {
         VStack {
@@ -22,8 +25,8 @@ struct ChallengeView: View {
                 .border(.blue)
             Spacer()
             Button("Check Result!") {
-                let missedWords = viewModel.missedWordsFor(text: inputText)
-                navigators.showResult((viewModel.memorizedText, missedWords))
+                let results = challenge.score(attemptedString: inputText, tokenizer: tokenizer, scorer: scorer)
+                navigators.showResult(results)
             }
             .disabled(inputText.isEmpty)
         }
@@ -32,5 +35,8 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    AppViewBuilder.buildPreview(screen: .challenge("My Bonnie Flies over the ocean"))
+    let tokens = DefaultTokenizer().tokenize("My Bonnie Flies over the ocean")
+    AppViewBuilder.buildPreview(screen: .challenge(
+        RecitationChallenge(memorizedTokens: tokens))
+    )
 }

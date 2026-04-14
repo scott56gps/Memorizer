@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		D274A4D12F6DC78F00F003EE /* Tokenizer in Frameworks */ = {isa = PBXBuildFile; productRef = D274A4D02F6DC78F00F003EE /* Tokenizer */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		D25E66F82F689B36006A33AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -56,7 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D274A4D12F6DC78F00F003EE /* Tokenizer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +112,6 @@
 			);
 			name = Memorizer;
 			packageProductDependencies = (
-				D274A4D02F6DC78F00F003EE /* Tokenizer */,
 			);
 			productName = ScriptureMemorizer;
 			productReference = D25E66EA2F689B34006A33AA /* Memorizer.app */;
@@ -202,7 +196,6 @@
 			mainGroup = D25E66E12F689B34006A33AA;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				D274A4CF2F6DC78F00F003EE /* XCLocalSwiftPackageReference "../design/Tokenizer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D25E66EB2F689B34006A33AA /* Products */;
@@ -591,20 +584,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		D274A4CF2F6DC78F00F003EE /* XCLocalSwiftPackageReference "../design/Tokenizer" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../design/Tokenizer;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D274A4D02F6DC78F00F003EE /* Tokenizer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Tokenizer;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D25E66E22F689B34006A33AA /* Project object */;
 }

@@ -15,7 +15,9 @@ struct ScriptureMemorizerApp: App {
         WindowGroup {
             AppViewBuilder.build(
                 screen: router.currentView,
-                router: router.navigators)
+                router: router.navigators,
+                tokenizer: DefaultTokenizer(),
+                scorer: DefaultScorer())
         }
     }
 }

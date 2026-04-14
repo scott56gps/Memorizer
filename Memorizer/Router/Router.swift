@@ -9,8 +9,8 @@ final class Router: ObservableObject {
         showCapture: { [weak self] in
             self?.currentView = .capture
         },
-        showChallenge: { [weak self] text in
-            self?.currentView = .challenge(text)
+        showChallenge: { [weak self] challenge in
+            self?.currentView = .challenge(challenge)
         },
         showResult: { [weak self] result in
             self?.currentView = .result(result)
