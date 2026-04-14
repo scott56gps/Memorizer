@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CaptureView: View {
-    var navigators: RoutingActions
     @State var text: String = ""
-    var viewModel: CaptureViewModel
+    
+    var navigators: RoutingActions
+    let tokenizer: Tokenizing
 
     var body: some View {
         VStack {
@@ -24,7 +25,7 @@ struct CaptureView: View {
             Button("Start Memorizing!") {
                 // We're tokenizing the text here, but really, we should be saving the text entered.
                 //  Tokenization should occur only when we're about to start a challenge.
-                let tokenizedText = viewModel.tokenizeText(text)
+                let tokenizedText = tokenizer.tokenize(text)
                 
                 // This is simulating coming from a "MenuView" or something like that.
                 // The tokenized text should only be created from the MenuView, since that View will be

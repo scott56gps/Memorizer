@@ -10,17 +10,17 @@ import SwiftUI
 struct AppViewBuilder {
     // All this function needs is direction of *what* to build (Screen) and the global materials to build it (Router)
     @ViewBuilder
-    static func build(screen: Screen, router: RoutingActions) -> some View {
+    static func build(screen: Screen, router: RoutingActions, tokenizer: Tokenizing, scorer: Scoring) -> some View {
         switch screen {
         case .capture: CaptureView(
             navigators: router,
-            viewModel: CaptureViewModel()
+            tokenizer: tokenizer
         )
         case .challenge(let challenge): ChallengeView(
             navigators: router,
             challenge: challenge,
-            tokenizer: DefaultTokenizer(),
-            scorer: DefaultScorer()
+            tokenizer: tokenizer,
+            scorer: scorer
         )
         case .result(let results): ResultView(
             navigators: router,
@@ -33,6 +33,8 @@ struct AppViewBuilder {
     static func buildPreview(screen: Screen) -> some View {
         build(
             screen: screen,
-            router: screen.previewRouters)
+            router: screen.previewRouters,
+            tokenizer: DefaultTokenizer(),
+            scorer: DefaultScorer())
     }
 }
