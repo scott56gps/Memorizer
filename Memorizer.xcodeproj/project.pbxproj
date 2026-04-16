@@ -14,19 +14,11 @@
 			remoteGlobalIDString = D25E66E92F689B34006A33AA;
 			remoteInfo = ScriptureMemorizer;
 		};
-		D25E67022F689B36006A33AA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D25E66E22F689B34006A33AA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D25E66E92F689B34006A33AA;
-			remoteInfo = ScriptureMemorizer;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D25E66EA2F689B34006A33AA /* Memorizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25E66F72F689B36006A33AA /* MemorizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemorizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D25E67012F689B36006A33AA /* MemorizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemorizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		D25E66FA2F689B36006A33AA /* MemorizerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MemorizerTests;
-			sourceTree = "<group>";
-		};
-		D25E67042F689B36006A33AA /* MemorizerUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MemorizerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D25E66FE2F689B36006A33AA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +57,6 @@
 			children = (
 				D25E66EC2F689B34006A33AA /* Memorizer */,
 				D25E66FA2F689B36006A33AA /* MemorizerTests */,
-				D25E67042F689B36006A33AA /* MemorizerUITests */,
 				D25E66EB2F689B34006A33AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +66,6 @@
 			children = (
 				D25E66EA2F689B34006A33AA /* Memorizer.app */,
 				D25E66F72F689B36006A33AA /* MemorizerTests.xctest */,
-				D25E67012F689B36006A33AA /* MemorizerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,29 +118,6 @@
 			productReference = D25E66F72F689B36006A33AA /* MemorizerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D25E67002F689B36006A33AA /* MemorizerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D25E67112F689B36006A33AA /* Build configuration list for PBXNativeTarget "MemorizerUITests" */;
-			buildPhases = (
-				D25E66FD2F689B36006A33AA /* Sources */,
-				D25E66FE2F689B36006A33AA /* Frameworks */,
-				D25E66FF2F689B36006A33AA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D25E67032F689B36006A33AA /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D25E67042F689B36006A33AA /* MemorizerUITests */,
-			);
-			name = MemorizerUITests;
-			packageProductDependencies = (
-			);
-			productName = ScriptureMemorizerUITests;
-			productReference = D25E67012F689B36006A33AA /* MemorizerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +132,6 @@
 						CreatedOnToolsVersion = 26.3;
 					};
 					D25E66F62F689B36006A33AA = {
-						CreatedOnToolsVersion = 26.3;
-						TestTargetID = D25E66E92F689B34006A33AA;
-					};
-					D25E67002F689B36006A33AA = {
 						CreatedOnToolsVersion = 26.3;
 						TestTargetID = D25E66E92F689B34006A33AA;
 					};
@@ -204,7 +155,6 @@
 			targets = (
 				D25E66E92F689B34006A33AA /* Memorizer */,
 				D25E66F62F689B36006A33AA /* MemorizerTests */,
-				D25E67002F689B36006A33AA /* MemorizerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -218,13 +168,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D25E66F52F689B36006A33AA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D25E66FF2F689B36006A33AA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -248,13 +191,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D25E66FD2F689B36006A33AA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -262,11 +198,6 @@
 			isa = PBXTargetDependency;
 			target = D25E66E92F689B34006A33AA /* Memorizer */;
 			targetProxy = D25E66F82F689B36006A33AA /* PBXContainerItemProxy */;
-		};
-		D25E67032F689B36006A33AA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D25E66E92F689B34006A33AA /* Memorizer */;
-			targetProxy = D25E67022F689B36006A33AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -504,46 +435,6 @@
 			};
 			name = Release;
 		};
-		D25E67122F689B36006A33AA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y5WLA6579;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = scott.ScriptureMemorizerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScriptureMemorizer;
-			};
-			name = Debug;
-		};
-		D25E67132F689B36006A33AA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y5WLA6579;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = scott.ScriptureMemorizerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScriptureMemorizer;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -570,15 +461,6 @@
 			buildConfigurations = (
 				D25E670F2F689B36006A33AA /* Debug */,
 				D25E67102F689B36006A33AA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D25E67112F689B36006A33AA /* Build configuration list for PBXNativeTarget "MemorizerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D25E67122F689B36006A33AA /* Debug */,
-				D25E67132F689B36006A33AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
