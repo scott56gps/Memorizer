@@ -1,0 +1,67 @@
+* Scripture Memorizer Design
+In here I will place my design artifacts and work for the Scripture Memorizer
+app.
+
+I have been using Copilot as a guide to help me navigate through the design
+process.
+
+** Persona
+Name: Scott
+Age: 32
+Loves his family.
+Wants to memorize scriptures to strengthen his relationship with his Father in
+Heaven and to clarify his spiritual motivations.
+
+** Promise (Value Proposition)
+This app enables you to practice recalling scriptures and gives you clear,
+honest and specific feedback on what you miss, so you can build confidence.
+
+** Golden Flow
+This is a description of the happy path for the persona.  This should summarize
+their motivations and what he/she or the app does to accomplish them.
+
+"5-Minute Recall Session"
+*** 1. Session Entry
+- Scott opens the app and immediately sees the scripture reference he is
+  currently practicing.
+- Scott indicates that he is ready to begin reciting.
+
+*** 2. Recitation Attempt
+- The app makes it clear that it is listening.
+- Scott recites the scripture (or a portion of it) from memory.
+- Scott indicates that he is finished with this attempt.
+
+*** 3. Feedback and Decision
+- The app shows precisely which words were correct and which were missed, in
+  context.
+- The app makes Scott's current level of recall clear.
+- Scott chooses to either:
+  - Attempt the same portion again
+  - End the session for now
+
+** Design Anchors
+If any of these moments fail, the app has failed to deliver its promise.
+
+- Immediate recognition of what Scott is memorizing.
+- Clarity that the app is listening.
+- Precision of feedback.
+
+** How Does My POC measure up to the Golden Flow?
+*** 1. Session Entry
+- [ ] Immediate recognition of what Scott is memorizing.
+- [X] Scott indicates that he is ready to being reciting.
+
+*** 2. Recitation Attempt
+- [X] The app makes it clear that it is listening
+- [X] Scott recites a scripture or a portion of it from memory
+- [X] Scott indicates that he is finished with this attempt
+IMPORTANT:
+The app is not "listening" right now.  It is using text input.
+
+*** 3. Feedback and Decision
+- [X] The app shows precisely which words were correct and which were missed, in
+  context.
+- [ ] The app makes Scott's current level of recall clear.
+- Scott chooses to either:
+  - [ ] Attempt the same portion again
+  - [ ] End the session for now

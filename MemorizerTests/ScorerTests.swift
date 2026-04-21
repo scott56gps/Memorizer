@@ -51,4 +51,26 @@ struct ScorerTests {
         #expect(result[0].correctness == .incorrect)
         #expect(result[1].correctness == .correct)
     }
+    
+    @Test("If attempted words is shorter than memorized tokens, correct tokens should be marked as correct")
+    func score_FewerAttemptedWordsThanMemorized_CorrectTokensMarkedAsCorrect() {
+        let memorizedTokens: [Token] = [
+            Token(text: "Hello", isWord: true),
+            Token(text: "Code", isWord: true),
+            Token(text: "World", isWord: true)]
+        let attemptedWords: [String] = ["Hello", "Code"]
+        let result = DefaultScorer().score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
+        #expect(result.map(\.correctness) == [.correct, .correct, .incorrect])
+    }
+    
+    @Test("If attempted words is shorter than memorized tokens and a correct attempted word comes after a memorized token, that word should be marked as correct")
+    func score_FewerAttemptedWordsThanMemorized_IncorrectWordFollowedByCorrectOneMarkedAsIncorrect() {
+        let memorizedTokens: [Token] = [
+            Token(text: "Hello", isWord: true),
+            Token(text: "Code", isWord: true),
+            Token(text: "World", isWord: true)]
+        let attemptedWords: [String] = ["Code"]
+        let result = DefaultScorer().score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
+        #expect(result.map(\.correctness) == [.incorrect, .correct, .incorrect])
+    }
 }
