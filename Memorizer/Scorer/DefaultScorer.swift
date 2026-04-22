@@ -20,10 +20,13 @@ struct DefaultScorer: Scoring {
                        attemptedWords: ArraySlice<String>,
                        itemPredicate: (String, String) -> Bool) -> [RecitationResultToken] {
         guard let firstOriginal = memorizedTokens.first else { return [] }
-        if !firstOriginal.isWord { return [RecitationResultToken(text: firstOriginal.text, correctness: .neutral)] + score(
-            memorizedTokens: memorizedTokens.dropFirst(),
-            attemptedWords: attemptedWords,
-            itemPredicate: itemPredicate) }
+        if !firstOriginal.isWord {
+            return [RecitationResultToken(text: firstOriginal.text, correctness: .neutral)] +
+            score(
+                memorizedTokens: memorizedTokens.dropFirst(),
+                attemptedWords: attemptedWords,
+                itemPredicate: itemPredicate)
+        }
 
         if let firstAttempted = attemptedWords.first {
             // We have an attempted word to test
