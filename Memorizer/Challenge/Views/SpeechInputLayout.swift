@@ -8,18 +8,31 @@
 import SwiftUI
 
 struct SpeechInputLayout: View {
+    @StateObject var viewModel = SpeechInputViewModel(transcriber: SpeechTranscriber())
     @Binding var text: String
     
     var body: some View {
         VStack {
-            Text(text)
-                .border(.blue)
+            Text(viewModel.text)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .border(.foreground)
+
             Button(action: {
-                text = "Speech input"
+                if !viewModel.isListening {
+                    viewModel.startTranscription()
+                } else {
+                    viewModel.stopTranscription()
+                    text = viewModel.text
+                }
             }) {
-                Text("Record")
+                if viewModel.isListening {
+                    Text("Stop Listening")
+                } else {
+                    Text("Start Listening")
+                }
             }
         }
+        .padding()
     }
 }
 
