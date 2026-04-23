@@ -30,7 +30,9 @@ struct CaptureView: View {
                 // This is simulating coming from a "MenuView" or something like that.
                 // The tokenized text should only be created from the MenuView, since that View will be
                 //  "kicking off the challenge"
-                navigators.showChallenge(RecitationChallenge(memorizedTokens: tokenizedText))
+                navigators.showChallenge(RecitationChallenge(memorizedTokens: tokenizedText),
+                                         // MARK: Remove after design spike
+                                         InputMethod.Text)
             }
             .disabled(text.isEmpty)
         }

@@ -7,6 +7,7 @@
 
 struct RoutingActions {
     var showCapture: () -> Void = { }
-    var showChallenge: (RecitationChallenge) -> Void = { _ in }
+    var showInputSelect: () -> Void = { }
+    var showChallenge: (RecitationChallenge, InputMethod) -> Void = { _, _ in }
     var showResult: (RecitationResult) -> Void = { _ in }
 }

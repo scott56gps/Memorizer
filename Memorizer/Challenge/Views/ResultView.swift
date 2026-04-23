@@ -30,7 +30,7 @@ struct ResultView: View {
             Text(results.resultText)
             Spacer()
             Button(hasMissedText ? "Try Again" : "Play Again") {
-                navigators.showCapture()
+                navigators.showInputSelect()
             }
         }
         .padding()

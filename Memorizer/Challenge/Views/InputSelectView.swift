@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct InputSelectView: View {
+    var navigators: RoutingActions
     @State private var inputMethod: InputMethod = .Speech
+    
+    let challenge = RecitationChallenge.mock(
+        withText: """
+        And what is it that ye shall hope for?  Behold, I say unto you that ye shall have hope \
+        through the Atonement of christ and the power of his resurrection, to be raised unto \
+        life eternal, and this because of your faith in him according to the promise.
+        """,
+        tokenizer: DefaultTokenizer())
     var body: some View {
         VStack{
             Spacer()
@@ -19,14 +28,16 @@ struct InputSelectView: View {
                 Text("Speech").tag(InputMethod.Speech)
             }
             .pickerStyle(.segmented)
-            Button("Continue", action: { })
+            Button("Continue", action: {
+                navigators.showChallenge(challenge, inputMethod)
+            })
         }
         .padding()
     }
 }
 
 #Preview {
-    InputSelectView()
+    AppViewBuilder.buildPreview(screen: .inputSelect)
 }
 
 enum InputMethod {

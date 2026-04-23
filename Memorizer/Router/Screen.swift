@@ -7,7 +7,8 @@
 
 enum Screen {
     case capture
-    case challenge(RecitationChallenge)
+    case inputSelect
+    case challenge(RecitationChallenge, InputMethod)
     case result(RecitationResult)
 }
 
@@ -16,8 +17,16 @@ extension Screen {
         switch self {
         case .capture:
             return RoutingActions(
-                showChallenge: { challenge in
+                showChallenge: { challenge, inputMethod in
                     print("Preview: Capture -> Challenge with tokens: \(challenge.memorizedTokens)")
+                    print("and input method: \(inputMethod)")
+                }
+            )
+        case .inputSelect:
+            return RoutingActions(
+                showChallenge: { challenge, inputMethod in
+                    print("Preview: InputSelect -> Challenge with tokens: \(challenge.memorizedTokens)")
+                    print("and input method: \(inputMethod)")
                 }
             )
         case .challenge:
