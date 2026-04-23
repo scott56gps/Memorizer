@@ -25,8 +25,7 @@ struct ChallengeView: View {
             Text("Please recite your text:")
             switch inputMethod {
             case .Text:
-                TextField("", text: $inputText)
-                    .border(.blue)
+                TextInputView(text: $inputText)
             case .Speech:
                 Text(inputText)
                     .border(.blue)
