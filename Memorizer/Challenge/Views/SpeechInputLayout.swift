@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SpeechInputView: View {
+struct SpeechInputLayout: View {
     @Binding var text: String
     
     var body: some View {
@@ -25,5 +25,5 @@ struct SpeechInputView: View {
 
 #Preview {
     @Previewable @State var text = ""
-    SpeechInputView(text: $text)
+    SpeechInputLayout(text: $text)
 }

@@ -25,9 +25,9 @@ struct ChallengeView: View {
             Text("Please recite your text:")
             switch inputMethod {
             case .Text:
-                TextInputView(text: $inputText)
+                TextInputLayout(text: $inputText)
             case .Speech:
-                SpeechInputView(text: $inputText)
+                SpeechInputLayout(text: $inputText)
             }
 
             Spacer()
