@@ -27,13 +27,7 @@ struct ChallengeView: View {
             case .Text:
                 TextInputView(text: $inputText)
             case .Speech:
-                Text(inputText)
-                    .border(.blue)
-                Button(action: {
-                    inputText = "Speech input"
-                }) {
-                    Text("Record")
-                }
+                SpeechInputView(text: $inputText)
             }
 
             Spacer()
