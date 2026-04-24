@@ -12,16 +12,12 @@ struct InputSelectView: View {
     @State private var inputMethod: InputMethod = .Speech
     
     let challenge = RecitationChallenge.mock(
-        withText: """
-        And what is it that ye shall hope for?  Behold, I say unto you that ye shall have hope \
-        through the Atonement of christ and the power of his resurrection, to be raised unto \
-        life eternal, and this because of your faith in him according to the promise.
-        """,
+        withText: "Look unto me in every thought; doubt not, fear not.",
         tokenizer: DefaultTokenizer())
     var body: some View {
         VStack{
             Spacer()
-            Text("Alma 7:11")
+            Text("D&C 6:36")
             Spacer()
             Picker("Input Method", selection: $inputMethod) {
                 Text("Text").tag(InputMethod.Text)

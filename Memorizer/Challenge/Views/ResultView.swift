@@ -15,25 +15,36 @@ struct ResultView: View {
     }
 
     var body: some View {
-        VStack {
-            Text("Memorizer")
-                .font(.largeTitle)
-            Spacer()
-            if hasMissedText {
-                Text("Almost!")
-                    .font(.title)
-            } else {
-                Text("Congratulations!")
-                    .font(.title)
-                Text("You correctly recited your text")
+        ZStack {
+            if !hasMissedText {
+                LinearGradient(
+                    colors: [.pink, .purple],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
             }
-            Text(results.resultText)
-            Spacer()
-            Button(hasMissedText ? "Try Again" : "Play Again") {
-                navigators.showInputSelect()
+                        
+            VStack {
+                Text("Memorizer")
+                    .font(.largeTitle)
+                Spacer()
+                if hasMissedText {
+                    Text("Almost!")
+                        .font(.title)
+                } else {
+                    Text("Congratulations!")
+                        .font(.largeTitle)
+                    Text("You correctly recited your text")
+                }
+                Text(results.resultText)
+                Spacer()
+                Button(hasMissedText ? "Try Again" : "Play Again") {
+                    navigators.showInputSelect()
+                }
             }
+            .padding()
         }
-        .padding()
     }
 }
 
