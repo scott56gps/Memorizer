@@ -5,6 +5,21 @@
 //  Created by Scott Nicholes on 4/24/26.
 //
 
+struct LCSScorer: Scoring {
+    func score(memorizedWords: [String], attemptedWords: [String]) -> [RecallResult] {
+        var lcsOutput = lcsMatches(memorizedWords, attemptedWords, matches: ==)
+        
+        let results: [RecallResult] = (0...memorizedWords.count).map { i in
+            var result: RecallResult = .missed
+            if let lastOutput = lcsOutput.last?.0 {
+                result = i == lastOutput ? .correct : .missed
+            }
+            return result
+        }
+        return results
+    }
+}
+
 func lcsMatches<L, R>(_ left: [L], _ right: [R], matches: (L, R) -> Bool) -> [(Int, Int)] {
     let n = left.count
     let m = right.count
@@ -13,8 +28,7 @@ func lcsMatches<L, R>(_ left: [L], _ right: [R], matches: (L, R) -> Bool) -> [(I
     
     // 1. Construct a matrix of size n+1 by m+1
     //  with the first row and column filled with 0s
-    var lengths = Array(
-        repeating: Array(repeating: 0, count: m + 1), count: n + 1)
+    var lengths = Array(repeating: Array(repeating: 0, count: m + 1), count: n + 1)
     
     // Fill in the matrix
     for i in 1...n {

@@ -6,5 +6,5 @@
 //
 
 protocol Scoring {
-    func score(memorizedTokens: [Token], attemptedWords: [String]) -> [RecitationResultToken]
+    func score(memorizedWords: [String], attemptedWords: [String]) -> [RecallResult]
 }
