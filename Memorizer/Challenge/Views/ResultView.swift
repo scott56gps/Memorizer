@@ -11,7 +11,7 @@ struct ResultView: View {
     var navigators: RoutingActions
     let results: RecitationResult
     var hasMissedText: Bool {
-        results.hasIncorrectToken
+        results.hasMissedToken
     }
 
     var body: some View {
@@ -40,8 +40,8 @@ struct ResultView: View {
 #Preview {
     AppViewBuilder.buildPreview(screen: .result(RecitationResult(results: [
         RecitationResultToken(text: "How", correctness: .correct),
-        RecitationResultToken(text: "great", correctness: .incorrect),
-        RecitationResultToken(text: ", ", correctness: .neutral),
+        RecitationResultToken(text: "great", correctness: .missed),
+        RecitationResultToken(text: ", ", correctness: .unscored),
         RecitationResultToken(text: "Thou", correctness: .correct),
         RecitationResultToken(text: "art", correctness: .correct)
     ])))

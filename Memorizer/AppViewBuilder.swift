@@ -35,6 +35,6 @@ struct AppViewBuilder {
             screen: screen,
             router: screen.previewRouters,
             tokenizer: DefaultTokenizer(),
-            scorer: DefaultScorer())
+            scorer: LCSScorer())
     }
 }

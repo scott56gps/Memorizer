@@ -22,7 +22,7 @@ struct DefaultTokenStylerTests {
     
     @Test("When incorrect token is given, default color is not applied to result")
     func testStyle_IncorrectToken_NonDefaultColor() {
-        let testToken = RecitationResultToken(text: "Hola", correctness: .incorrect)
+        let testToken = RecitationResultToken(text: "Hola", correctness: .missed)
         let result = target.style(testToken)
         #expect(result.foregroundColor != .primary)
     }

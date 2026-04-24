@@ -15,18 +15,18 @@ struct RecitationResult {
             result.append(styler.style(token))
         }
     }
-    var hasIncorrectToken: Bool {
-        results.contains { .incorrect == $0.correctness }
+    var hasMissedToken: Bool {
+        results.contains { .missed == $0.correctness }
     }
 }
 
 struct RecitationResultToken {
     let text: String
-    let correctness: RecitationResultCorrectness
+    let correctness: RecallResult
 }
 
-enum RecitationResultCorrectness: Equatable {
+enum RecallResult: Equatable {
     case correct
-    case incorrect
-    case neutral
+    case missed
+    case unscored
 }

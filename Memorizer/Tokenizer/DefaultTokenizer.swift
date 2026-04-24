@@ -18,7 +18,7 @@ struct DefaultTokenizer: Tokenizing {
                 options: .regularExpression
             ) != nil
 
-            return Token(text: text, isWord: isWord)
+            return isWord ? .word(text) : .punctuation(text)
         }
     }
 }

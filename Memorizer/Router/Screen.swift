@@ -25,15 +25,15 @@ extension Screen {
                 showResult: { result in
                     print("Preview: Challenge → Result")
                     print("Showing Results:")
-                    let tokensGroupedByCorrectness: [RecitationResultCorrectness: [RecitationResultToken]] = Dictionary(grouping: result.results) { result in
+                    let tokensGroupedByCorrectness: [RecallResult: [RecitationResultToken]] = Dictionary(grouping: result.results) { result in
                         switch result.correctness {
                         case .correct: return .correct
-                        case .incorrect: return .incorrect
-                        case .neutral: return .neutral
+                        case .missed: return .missed
+                        case .unscored: return .unscored
                         }
                     }
                     print("Correct Tokens: \(tokensGroupedByCorrectness[.correct] ?? [])")
-                    print("Incorrect Tokens: \(tokensGroupedByCorrectness[.incorrect] ?? [])")
+                    print("Incorrect Tokens: \(tokensGroupedByCorrectness[.missed] ?? [])")
                     print("Full String: \(result.results.reduce("") { $0 + $1.text })")
                 }
             )

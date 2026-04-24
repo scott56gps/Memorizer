@@ -11,11 +11,28 @@ struct RecitationChallenge {
 
 extension RecitationChallenge {
     func score(attemptedString: String, tokenizer: Tokenizing, scorer: Scoring) -> RecitationResult {
+        let memorizedWords = memorizedTokens.compactMap(extractWordToken)
         let attemptedWords = tokenizer.tokenize(attemptedString)
-            .filter { $0.isWord }
-            .map { $0.text }
-            
-        let results = scorer.score(memorizedTokens: memorizedTokens, attemptedWords: attemptedWords)
-        return RecitationResult(results: results)
+            .compactMap(extractWordToken)
+        
+        let results = scorer.score(memorizedWords: memorizedWords, attemptedWords: attemptedWords)
+        var resultIterator = results.makeIterator()
+        
+        // Convert our memorizedTokens into results
+        let recitationResults = memorizedTokens.map { token in
+            switch token {
+            case .word(let text):
+                let correctness = resultIterator.next() ?? .missed
+                return RecitationResultToken(text: text, correctness: correctness)
+            case .punctuation(let text):
+                return RecitationResultToken(text: text, correctness: .unscored)
+            }
+        }
+        return RecitationResult(results: recitationResults)
+    }
+    
+    private func extractWordToken(_ token: Token) -> String? {
+        if case .word(let attemptedWord) = token { return attemptedWord }
+        else { return nil }
     }
 }

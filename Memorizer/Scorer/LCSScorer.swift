@@ -12,6 +12,10 @@ struct LCSScorer: Scoring {
         let results: [RecallResult] = (0...memorizedWords.count).map { i in
             var result: RecallResult = .missed
             if let lastOutput = lcsOutput.last?.0 {
+                if i == lastOutput {
+                    result = .correct
+                    lcsOutput = lcsOutput.dropLast(1)
+                }
                 result = i == lastOutput ? .correct : .missed
             }
             return result
