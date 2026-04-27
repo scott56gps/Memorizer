@@ -7,9 +7,11 @@
 
 struct LCSScorer: Scoring {
     func score(memorizedWords: [String], attemptedWords: [String]) -> [RecallResult] {
-        var lcsOutput = lcsMatches(memorizedWords, attemptedWords, matches: ==)
+        var lcsOutput = lcsMatches(memorizedWords, attemptedWords) {
+            $0.lowercased() == $1.lowercased()
+        }
         
-        let results: [RecallResult] = (0...memorizedWords.count).map { i in
+        let results: [RecallResult] = (0..<memorizedWords.count).map { i in
             var result: RecallResult = .missed
             if let lastOutput = lcsOutput.last?.0 {
                 if i == lastOutput {
@@ -70,6 +72,5 @@ func lcsMatches<L, R>(_ left: [L], _ right: [R], matches: (L, R) -> Bool) -> [(I
         }
     }
     
-    matchingPairs.reverse()
     return matchingPairs
 }
