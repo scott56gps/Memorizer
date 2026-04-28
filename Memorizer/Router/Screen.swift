@@ -33,7 +33,7 @@ extension Screen {
                         }
                     }
                     print("Correct Tokens: \(tokensGroupedByCorrectness[.correct] ?? [])")
-                    print("Incorrect Tokens: \(tokensGroupedByCorrectness[.missed] ?? [])")
+                    print("Missed Tokens: \(tokensGroupedByCorrectness[.missed] ?? [])")
                     print("Full String: \(result.results.reduce("") { $0 + $1.text })")
                 }
             )
