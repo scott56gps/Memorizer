@@ -32,9 +32,7 @@ struct LCSScorerTests {
             memorizedWords: memorizedWords,
             attemptedWords: attemptedWords
         )
-        results.forEach {
-            #expect($0 == .missed)
-        }
+        #expect(results.allSatisfy { $0 == .missed })
     }
     
     @Test(
@@ -47,7 +45,7 @@ struct LCSScorerTests {
             memorizedWords: memorizedWords,
             attemptedWords: attemptedWords
         )
-        #expect(result[0] == .correct)
+        #expect(result == [.correct])
     }
     
     @Test(
@@ -60,7 +58,7 @@ struct LCSScorerTests {
             memorizedWords: memorizedWords,
             attemptedWords: attemptedWords
         )
-        #expect(result[0] == .missed)
+        #expect(result == [.missed])
     }
     
     @Test("If missed words are found among correct words, correct words should me marked as correct")
@@ -71,9 +69,7 @@ struct LCSScorerTests {
             memorizedWords: memorizedWords,
             attemptedWords: attemptedWords
         )
-        #expect(result[0] == .correct)
-        #expect(result[1] == .missed)
-        #expect(result[2] == .correct)
+        #expect(result == [.correct, .missed, .correct])
     }
     
     @Test(

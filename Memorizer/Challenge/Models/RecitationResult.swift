@@ -24,9 +24,3 @@ struct RecitationResultToken {
     let text: String
     let correctness: RecallResult
 }
-
-enum RecallResult: Equatable {
-    case correct
-    case missed
-    case unscored
-}
