@@ -15,8 +15,8 @@ struct RecitationResultTests {
     func styledTextPreservesOrder() {
         let tokens = [
             RecitationResultToken(text: "I", correctness: .correct),
-            RecitationResultToken(text: " ", correctness: .neutral),
-            RecitationResultToken(text: "Love", correctness: .incorrect),
+            RecitationResultToken(text: " ", correctness: .unscored),
+            RecitationResultToken(text: "Love", correctness: .missed),
         ]
         let result = RecitationResult(results: tokens)
         
