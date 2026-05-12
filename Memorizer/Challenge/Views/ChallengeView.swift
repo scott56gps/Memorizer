@@ -42,7 +42,7 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    let tokens = DefaultTokenizer().tokenize("My Bonnie Flies over the ocean")
+    let tokens = TextTokenizer().tokenize("My Bonnie Flies over the ocean")
     AppViewBuilder.buildPreview(screen: .challenge(
         RecitationChallenge(memorizedTokens: tokens),
         .Speech)

@@ -13,7 +13,7 @@ struct InputSelectView: View {
     
     let challenge = RecitationChallenge.mock(
         withText: "Look unto me in every thought; doubt not, fear not.",
-        tokenizer: DefaultTokenizer())
+        tokenizer: TextTokenizer())
     var body: some View {
         VStack{
             Spacer()
