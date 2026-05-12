@@ -16,11 +16,15 @@ struct AppViewBuilder {
             navigators: router,
             tokenizer: tokenizer
         )
-        case .challenge(let challenge): ChallengeView(
+        case .inputSelect: InputSelectView(
+            navigators: router
+        )
+        case .challenge(let challenge, let inputMethod): ChallengeView(
             navigators: router,
             challenge: challenge,
             tokenizer: tokenizer,
-            scorer: scorer
+            scorer: scorer,
+            inputMethod: inputMethod
         )
         case .result(let results): ResultView(
             navigators: router,
@@ -34,7 +38,7 @@ struct AppViewBuilder {
         build(
             screen: screen,
             router: screen.previewRouters,
-            tokenizer: DefaultTokenizer(),
+            tokenizer: TextTokenizer(),
             scorer: LCSScorer())
     }
 }

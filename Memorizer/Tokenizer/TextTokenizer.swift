@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct DefaultTokenizer: Tokenizing {
+struct TextTokenizer: Tokenizing {
     private let regex = try! Regex<Substring>(#"[\w']+|[[:punct:]]\s*|\s+"#)
     
     func tokenize(_ string: String) -> [Token] {

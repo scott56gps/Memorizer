@@ -16,7 +16,7 @@ struct ScriptureMemorizerApp: App {
             AppViewBuilder.build(
                 screen: router.currentView,
                 router: router.navigators,
-                tokenizer: DefaultTokenizer(),
+                tokenizer: TextTokenizer(),
                 scorer: LCSScorer())
         }
     }

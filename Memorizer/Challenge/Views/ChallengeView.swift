@@ -14,6 +14,8 @@ struct ChallengeView: View {
     
     let tokenizer: Tokenizing
     let scorer: Scoring
+    
+    let inputMethod: InputMethod
 
     var body: some View {
         VStack {
@@ -21,8 +23,13 @@ struct ChallengeView: View {
                 .font(.largeTitle)
             Spacer()
             Text("Please recite your text:")
-            TextField("", text: $inputText)
-                .border(.blue)
+            switch inputMethod {
+            case .Text:
+                TextInputLayout(text: $inputText)
+            case .Speech:
+                SpeechInputLayout(text: $inputText)
+            }
+
             Spacer()
             Button("Check Result!") {
                 let results = challenge.score(attemptedString: inputText, tokenizer: tokenizer, scorer: scorer)
@@ -35,8 +42,9 @@ struct ChallengeView: View {
 }
 
 #Preview {
-    let tokens = DefaultTokenizer().tokenize("My Bonnie Flies over the ocean")
+    let tokens = TextTokenizer().tokenize("My Bonnie Flies over the ocean")
     AppViewBuilder.buildPreview(screen: .challenge(
-        RecitationChallenge(memorizedTokens: tokens))
+        RecitationChallenge(memorizedTokens: tokens),
+        .Speech)
     )
 }

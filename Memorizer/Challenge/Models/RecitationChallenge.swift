@@ -36,3 +36,9 @@ extension RecitationChallenge {
         else { return nil }
     }
 }
+
+extension RecitationChallenge {
+    static func mock(withText text: String, tokenizer: Tokenizing) -> RecitationChallenge {
+        self.init(memorizedTokens: tokenizer.tokenize(text))
+    }
+}
